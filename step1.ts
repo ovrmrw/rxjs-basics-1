@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 import 'zone.js/dist/zone-node';
-import * as lodash from 'lodash';
-import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 declare const Zone: any;
 
 

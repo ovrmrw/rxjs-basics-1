@@ -1,13 +1,12 @@
 import 'babel-polyfill';
 import 'zone.js/dist/zone-node';
-import * as lodash from 'lodash';
-import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 declare const Zone: any;
 
 
 Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
 
-  console.log('map');
+  console.log('*'.repeat(10), 'map operator');
 
   Observable.of(1, 2, 3)
     .map(value => value * 10)
@@ -16,7 +15,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     }, err => { }, () => console.log('(map complete)'));
 
 
-  console.log('*'.repeat(10), 'filter');
+  console.log('*'.repeat(10), 'filter operator');
 
   Observable.of(1, 2, 3)
     .filter(value => value % 2 === 0)
@@ -25,7 +24,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     }, err => { }, () => console.log('(filter complete)'));
 
 
-  console.log('*'.repeat(10), 'scan');
+  console.log('*'.repeat(10), 'scan operator');
 
   Observable.of(1, 2, 3)
     .scan((p, value) => p + value)
@@ -34,7 +33,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     }, err => { }, () => console.log('(scan complete)'));
 
 
-  console.log('*'.repeat(10), 'reduce');
+  console.log('*'.repeat(10), 'reduce operator');
 
   Observable.of(1, 2, 3)
     .reduce((p, value) => p + value)

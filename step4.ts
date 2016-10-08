@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 import 'zone.js/dist/zone-node';
-import * as lodash from 'lodash';
-import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 declare const Zone: any;
 
 
@@ -24,7 +23,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
   });
 
 
-  console.log('timer, take');
+  console.log('*'.repeat(10), 'timer, take operator');
 
   Observable.timer(0, 500)
     .take(3)

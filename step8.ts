@@ -1,13 +1,12 @@
 import 'babel-polyfill';
 import 'zone.js/dist/zone-node';
-import * as lodash from 'lodash';
-import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 declare const Zone: any;
 
 
 Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
 
-  console.log('*'.repeat(10), 'combineLatest');
+  console.log('*'.repeat(10), 'combineLatest operator');
 
   const subject1 = new Subject();
   const subject2 = new Subject();
@@ -45,4 +44,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
   await Observable.of('').do(() => console.log('wait...')).delay(1000).toPromise();
 
   subject2.next('action C');
+
+
+  subject1.complete();
 });

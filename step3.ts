@@ -1,24 +1,25 @@
 import 'babel-polyfill';
 import 'zone.js/dist/zone-node';
-import * as lodash from 'lodash';
-import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 declare const Zone: any;
 
 
 Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
 
-  console.log('*'.repeat(10), 'sync');
+  console.log('*'.repeat(10), 'delay operator instead of setTimeout');
+
+  console.log('   0ms');
 
 
   setTimeout(() => {
-    console.log('setTimeout')
-  }, 500);
+    console.log('1000ms');
+  }, 1000);
 
 
   Observable.of('')
-    .delay(1000)
+    .delay(2000)
     .subscribe(() => {
-      console.log('delay');
+      console.log('2000ms');
     }, err => { }, () => console.log('(delay complete)'));
 
 });
