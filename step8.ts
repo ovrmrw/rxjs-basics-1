@@ -47,4 +47,5 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
 
 
   subject1.complete();
+  
 });
