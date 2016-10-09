@@ -11,7 +11,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
   Observable.of(1, 2, 3)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(of complete)'));
+    });
 
 
   console.log('*'.repeat(10), 'Observable.from');
@@ -19,7 +19,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
   Observable.from([1, 2, 3])
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(from complete)'));
+    });
 
 
   console.log('*'.repeat(10), 'Observable.range');
@@ -27,6 +27,6 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
   Observable.range(1, 3)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(range complete)'));
+    });
 
 });

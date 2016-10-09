@@ -12,7 +12,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     .map(value => value * 10)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(map complete)'));
+    });
 
 
   console.log('*'.repeat(10), 'filter operator');
@@ -21,7 +21,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     .filter(value => value % 2 === 0)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(filter complete)'));
+    });
 
 
   console.log('*'.repeat(10), 'scan operator');
@@ -30,7 +30,7 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     .scan((p, value) => p + value)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(scan complete)'));
+    });
 
 
   console.log('*'.repeat(10), 'reduce operator');
@@ -39,6 +39,6 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     .reduce((p, value) => p + value)
     .subscribe(value => {
       console.log(value);
-    }, err => { }, () => console.log('(reduce complete)'));
+    });
 
 });

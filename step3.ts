@@ -20,6 +20,6 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(() => {
     .delay(2000)
     .subscribe(() => {
       console.log('2000ms');
-    }, err => { }, () => console.log('(delay complete)'));
+    });
 
 });

@@ -29,6 +29,6 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
     .take(3)
     .subscribe(index => {
       console.log(index);
-    }, err => { }, () => console.log('(timer complete)'));
+    });
 
 });

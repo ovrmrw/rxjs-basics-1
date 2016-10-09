@@ -23,8 +23,14 @@ Zone.current.fork({ name: 'myZone' }).runGuarded(async () => {
   });
 
 
-  await Observable.of(3).delay(500).toPromise().then(value => console.log(value));
+  await Observable.of(3)
+    .delay(500)
+    .do(value => console.log(value))
+    .toPromise();
 
-  await Observable.of(4).delay(500).toPromise().then(value => console.log(value));
+  await Observable.of(4)
+    .delay(500)
+    .do(value => console.log(value))
+    .toPromise();
 
 });
